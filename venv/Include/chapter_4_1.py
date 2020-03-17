@@ -51,6 +51,8 @@ class NaiveBayes:
     # 处理X_train
     def summarize(self, train_data):
         # 注意这里train_data 的用法
+        # 传入的是一个二维数组 通过*对二维list进行解包裹,在通过zip进行打包，将第0列'sepal length'全部参数一次取出
+        # 计算其平均数 标准差
         summarize = [(self.mean(i), self.stdev(i)) for i in zip(*train_data)]
         return summarize
 
