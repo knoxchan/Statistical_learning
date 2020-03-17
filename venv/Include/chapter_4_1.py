@@ -43,6 +43,8 @@ class NaiveBayes:
 
     # 概率密度函数
     def guassian_probability(self, x, mean, stdev):
+        # exponent = (1 / (math.sqrt(2 * math.pi)) * math.pow(stdev, 2)) * math.exp(
+        #     -(math.pow(x -mean, 2) / (2 * math.pow(stdev, 2))))
         exponent = math.exp(-(math.pow(x - mean, 2) / (2 * math.pow(stdev, 2))))
         return exponent
 
@@ -90,4 +92,4 @@ class NaiveBayes:
 model = NaiveBayes()
 model.fit(X_train, y_train)
 print(model.predict([4.4, 3.2, 1.3, 0.2]))
-print(model.score(X_test,y_test))
+print(model.score(X_test, y_test))
