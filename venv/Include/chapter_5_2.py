@@ -1,4 +1,5 @@
-# 信息增益 计算根节点
+# 信息增益生成决策树
+# 用ID3算法建立决策树
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -6,6 +7,7 @@ import matplotlib.pyplot as plt
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 
+from collections import Counter
 import math
 from math import log
 
@@ -31,6 +33,17 @@ def create_data():
     labels = [u'年龄', u'有工作', u'有自己的房子', u'信贷情况', u'类别']
     # 返回数据集和每个维度的名称
     return datasets, labels
+
+
+# ID算法生成决策树
+# 定义节点类 二叉树
+class Node:
+    def __init__(self, root=True, lable=None, feature_names=None, deature=None):
+        self.root = root
+        self.lable  = lable
+        self.feature_names = feature_names
+        self.tree = {}
+        
 
 
 datasets, labels = create_data()
@@ -65,19 +78,3 @@ def cond_ent(datasets, axis=0):
 # 信息增益
 def info_gain(ent, cond_ent):
     return ent - cond_ent
-
-
-def info_gain_train(datasets):
-    count = len(datasets[0]) - 1
-    ent = calc_ent(datasets)
-    best_feature = []
-    for c in range(count):
-        c_info_gain = info_gain(ent, cond_ent(datasets, axis=c))
-        best_feature.append((c, c_info_gain))
-        print('特征({}) - info_gain - {:.3f}'.format(labels[c], c_info_gain))
-    # 比较大小
-    best_ = max(best_feature, key=lambda x: x[-1])
-    return '特征({})的信息增益最大，选择为根节点特征'.format(labels[best_[0]])
-
-
-print(info_gain_train(np.array(datasets)))
