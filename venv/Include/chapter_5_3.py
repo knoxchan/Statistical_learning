@@ -16,7 +16,7 @@ def create_data():
     return data[:, :-1], data[:, -1]
 
 X,y = create_data()
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25)
 clf = DecisionTreeClassifier()
 clf.fit(X_train,y_train)
 print(clf.score(X_test,y_test))

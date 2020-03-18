@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57da242c-aa56-4c0e-9d7c-25bfcdaa5099" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/venv/Include/chapter_5_2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Include/chapter_5_3.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Include/chapter_5_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Include/chapter_5_1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Include/chapter_5_3.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Include/chapter_5_3.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,7 +13,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Statistical_learning$chapter_2.coverage" NAME="chapter_2 Coverage Results" MODIFIED="1584005462123" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
-    <SUITE FILE_PATH="coverage/Statistical_learning$chapter_5_3.coverage" NAME="chapter_5_3 Coverage Results" MODIFIED="1584526983857" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
+    <SUITE FILE_PATH="coverage/Statistical_learning$chapter_5_3.coverage" NAME="chapter_5_3 Coverage Results" MODIFIED="1584527106963" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
     <SUITE FILE_PATH="coverage/Statistical_learning$chapter_5_1.coverage" NAME="chapter_5_1 Coverage Results" MODIFIED="1584526041134" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
     <SUITE FILE_PATH="coverage/Statistical_learning$chapter_3.coverage" NAME="chapter_3 Coverage Results" MODIFIED="1584352301047" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
     <SUITE FILE_PATH="coverage/Statistical_learning$chapter_4.coverage" NAME="chapter_4 Coverage Results" MODIFIED="1584434946021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
@@ -51,8 +49,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/venv/Include/chapter_5_3.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="5" column="52" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
+            <state relative-caret-position="333">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -312,7 +310,7 @@
       <workItem from="1583998345155" duration="10722000" />
       <workItem from="1584342470554" duration="21021000" />
       <workItem from="1584496625060" duration="603000" />
-      <workItem from="1584502632815" duration="4773000" />
+      <workItem from="1584502632815" duration="4947000" />
     </task>
     <task id="LOCAL-00001" summary="贝叶斯">
       <created>1584436593501</created>
@@ -342,11 +340,18 @@
       <option name="project" value="LOCAL" />
       <updated>1584526079985</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="决策树">
+      <created>1584527006955</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1584527006955</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37119000" />
+    <option name="totallyTimeSpent" value="37293000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -367,7 +372,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49671772" visible="true" weight="0.3483023" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49840087" weight="0.52386117" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49840087" weight="0.5235487" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49946696" weight="0.329718" />
@@ -440,7 +445,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="贝叶斯" />
     <MESSAGE value="信息增益" />
-    <option name="LAST_COMMIT_MESSAGE" value="信息增益" />
+    <MESSAGE value="决策树" />
+    <option name="LAST_COMMIT_MESSAGE" value="决策树" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -591,8 +597,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/Include/chapter_5_3.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="5" column="52" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
+        <state relative-caret-position="333">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
