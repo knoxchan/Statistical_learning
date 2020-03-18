@@ -12,7 +12,7 @@ def create_data():
     df = pd.DataFrame(iris.data, columns=iris.feature_names)
     df['label'] = iris.target
     df.columns = ['sepal length', 'sepal width', 'petal length', 'petal width', 'label']
-    data = np.array(df.iloc[:100, [0, 1, -1]])
+    data = np.array(df.iloc[:100])
     return data[:, :-1], data[:, -1]
 
 X,y = create_data()
