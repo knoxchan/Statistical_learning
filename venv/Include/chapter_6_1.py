@@ -38,7 +38,7 @@ class LogisticRegressionClassifier:
         data_mat = self.data_matrix(X)  # m*n
         self.weights = np.zeros((len(data_mat[0]), 1), dtype=np.float32)
         # (len(data_mat[0]), 1) zeros.shape = len(data_mat[0]) * 1
-         for iter_ in range(self.max_iter):
+        for iter_ in range(self.max_iter):
             for i in range(len(X)):
                 result = self.sigmoid(np.dot(data_mat[i], self.weights))
                 error = y[i] - result
