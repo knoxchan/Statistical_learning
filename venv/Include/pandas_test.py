@@ -25,4 +25,13 @@ left1 = DataFrame({'key1':['a','b','a','a','b','c'],
 right1 = DataFrame({'group_val':[3.5,7]},index=['a','b'])
 
 df4 = pd.merge(left1,right1,left_on='key1',right_index=True)
-print(df4)
+
+lefth = DataFrame({'key1':['cjp','cjp','cjp','hyy','hyy'],
+                   'key2':[2000,2001,2002,2001,2002],
+                   'data':range(5)})
+print(lefth)
+righth = DataFrame(np.arange(12).reshape((6,2)),
+                   index=[['cjp','cjp','hyy','hyy','hyy','hyy'],
+                          [2001,2000,2000,2000,2001,2002]],
+                   columns=['event1','event2'])
+print(righth)
