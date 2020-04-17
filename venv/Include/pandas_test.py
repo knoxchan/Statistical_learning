@@ -35,3 +35,5 @@ righth = DataFrame(np.arange(12).reshape((6,2)),
                           [2001,2000,2000,2000,2001,2002]],
                    columns=['event1','event2'])
 print(righth)
+df5 = pd.merge(lefth,righth,left_on=['key1','key2'],right_index=True)
+print(df5)
