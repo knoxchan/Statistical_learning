@@ -1,4 +1,4 @@
-# import seaborn as sns
+import seaborn as sns
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
@@ -74,6 +74,7 @@ def example_03():
     Y = X_2D[:, 1]
     plt.scatter(X, Y)
     plt.show()
+    from sklearn.model_selection import cross_validate
 
 
 # 实例4 应用 手写数字探索
@@ -96,10 +97,31 @@ def example_04():
     iso.fit(X)
     data_projected = iso.transform(X)
 
-    plt.scatter(data_projected[:, 0], data_projected[:, 1], c=y, edgecolors='none', alpha=0.5,
-                cmap=plt.cm.get_cmap('Spectral', 10))
-    plt.colorbar(label='digit label',ticks=range(10))
-    plt.clim(-0.5,9.5)
+    # plt.scatter(data_projected[:, 0], data_projected[:, 1], c=y, edgecolors='none', alpha=0.5,
+    #             cmap=plt.cm.get_cmap('Spectral', 10))
+    # plt.colorbar(label='digit label', ticks=range(10))
+    # plt.clim(-0.5, 9.5)
+
+    from sklearn.model_selection import train_test_split
+    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1)
+
+    from sklearn.naive_bayes import GaussianNB
+    model = GaussianNB()
+    model.fit(X_train, y_train)
+    y_model = model.predict(X_test)
+
+    # 量化评分
+    from sklearn.metrics import accuracy_score
+    print(accuracy_score(y_model, y_test))
+
+    # 得到结果是85%的正确率 但是还是不知道哪里出了问题
+    # 解决这个问题的方法就是打印混淆矩阵
+    from sklearn.metrics import confusion_matrix
+
+    mat = confusion_matrix(y_test, y_model)
+    sns.heatmap(mat, square=True, annot=True, cbar=True)
+    plt.xlabel('predict value')
+    plt.ylabel('True value')
     plt.show()
 
 
