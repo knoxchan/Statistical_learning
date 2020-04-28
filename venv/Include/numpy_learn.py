@@ -10,4 +10,8 @@ import numpy as np
 # print(t5 - t8)
 # print(np.arange(6*7*8).reshape((6,7,8)))
 a = np.arange(16).reshape((2,2,4))
-print(np.transpose(a,[1,2,0]).shape)
+# print(np.transpose(a,[1,2,0]).shape)
+
+
+
+
