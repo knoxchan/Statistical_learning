@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 plt.rcParams['font.sans-serif'] = ['SimHei']
 plt.rcParams['axes.unicode_minus'] = False
+import pandas as pd
+import numpy as np
 
 # 假设一天中每隔2小时(range(2,26,2))的气温 分别是
 def temperature_show():
@@ -34,9 +36,24 @@ def temperature_show():
 7.给图片添加防伪水印
 '''
 
+def test():
+    fig = plt.figure(figsize=(20,10))
+    # fig, ax = plt.subplots(1,3)
+    # ax[0].plot(np.random.randn(100).cumsum(),'k',label='one')
+    # ax[1].plot(np.random.randn(100).cumsum(),'k--',label='two')
+    # ax[2].plot(np.random.randn(100).cumsum(),'k-',label='three')
+    plt.plot(np.random.randn(100).cumsum(),'k',label='one')
+    plt.plot(np.random.randn(100).cumsum(),'k--',label='two')
+    plt.plot(np.random.randn(100).cumsum(),'k.',label='three')
+
+    plt.text(50,8,'hello world!',fontsize=10)
+    fig.legend(loc='best')
+
+    plt.show()
+
 
 if __name__ == '__main__':
-    temperature_show()
+    test()
 
 
 
