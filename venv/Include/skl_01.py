@@ -125,5 +125,153 @@ def example_04():
     plt.show()
 
 
+# 实例5 skl验证曲线
+def example_05():
+    from sklearn.preprocessing import PolynomialFeatures
+    from sklearn.linear_model import LinearRegression
+    from sklearn.pipeline import make_pipeline
+
+    def PolynomialRegression(degree=2, **kwargs):
+        return make_pipeline(PolynomialFeatures(degree), LinearRegression(**kwargs))
+
+    # 创造一些数据
+    def make_data(N, err=1.0, rseed=1):
+        # 随机抽样数据
+        rng = np.random.RandomState(rseed)
+        X = rng.rand(N, 1) ** 2
+        y = 10 - 1. / (X.ravel() + 0.1)
+        if err > 0:
+            y += err * rng.rand(N)
+        return X, y
+
+    X, y = make_data(40)
+    X_test = np.linspace(-0.1, 1.1, 500)[:, np.newaxis]
+
+    plt.scatter(X.ravel(), y, color='black')
+    axis = plt.axis()
+    for dgree in [1, 3, 5]:
+        y_test = PolynomialRegression(dgree).fit(X, y).predict(X_test)
+        plt.plot(X_test.ravel(), y_test, label='dgree={}'.format(dgree))
+        plt.xlim(-0.1, 1.0)
+        plt.ylim(-2, 12)
+        plt.legend(loc='best')
+    plt.show()
+
+
+# 实例6 skl验证曲线 补充
+def example_06():
+    from sklearn.preprocessing import PolynomialFeatures
+    from sklearn.linear_model import LinearRegression
+    from sklearn.pipeline import make_pipeline
+
+    def PolynomialRegression(degree=2, **kwargs):
+        return make_pipeline(PolynomialFeatures(degree), LinearRegression(**kwargs))
+
+    # 创造一些数据
+    def make_data(N, err=1.0, rseed=1):
+        # 随机抽样数据
+        rng = np.random.RandomState(rseed)
+        X = rng.rand(N, 1) ** 2
+        y = 10 - 1. / (X.ravel() + 0.1)
+        if err > 0:
+            y += err * rng.rand(N)
+        return X, y
+
+    X, y = make_data(40)
+    X_test = np.linspace(-0.1, 1.1, 500)[:, np.newaxis]
+
+    # 到底多项式的次数是多少，模型才能在偏差和方差间达到平衡
+    # 引入skl的validation_curve 只需要提供模型 数据 参数名称 和 验证范围
+    from sklearn.model_selection import validation_curve
+    degree = np.arange(0, 21)
+    train_score, val_score = validation_curve(PolynomialRegression(), X, y, param_name='polynomialfeatures__degree',
+                                              param_range=degree, cv=7)
+    plt.plot(degree, np.median(train_score, 1), color='blue', label='train')
+    plt.plot(degree, np.median(val_score, 1), color='red', label='validation')
+    plt.legend(loc='best')
+    plt.ylim(0, 1)
+    plt.xlabel('dgree')
+    plt.ylabel('score')
+    plt.show()
+
+
+# 实例6 skl验证曲线 补充 得到学习曲线图
+def example_06():
+    from sklearn.preprocessing import PolynomialFeatures
+    from sklearn.linear_model import LinearRegression
+    from sklearn.pipeline import make_pipeline
+
+    def PolynomialRegression(degree=2, **kwargs):
+        return make_pipeline(PolynomialFeatures(degree), LinearRegression(**kwargs))
+
+    # 创造一些数据
+    def make_data(N, err=1.0, rseed=1):
+        # 随机抽样数据
+        rng = np.random.RandomState(rseed)
+        X = rng.rand(N, 1) ** 2
+        y = 10 - 1. / (X.ravel() + 0.1)
+        if err > 0:
+            y += err * rng.rand(N)
+        return X, y
+
+    X, y = make_data(40)
+    X_test = np.linspace(-0.1, 1.1, 500)[:, np.newaxis]
+
+    # 到底多项式的次数是多少，模型才能在偏差和方差间达到平衡
+    # 引入skl的validation_curve 只需要提供模型 数据 参数名称 和 验证范围
+    from sklearn.model_selection import validation_curve
+    degree = np.arange(0, 21)
+    train_score, val_score = validation_curve(PolynomialRegression(), X, y, param_name='polynomialfeatures__degree',
+                                              param_range=degree, cv=7)
+    plt.plot(degree, np.median(train_score, 1), color='blue', label='train')
+    plt.plot(degree, np.median(val_score, 1), color='red', label='validation')
+    plt.legend(loc='best')
+    plt.ylim(0, 1)
+    plt.xlabel('dgree')
+    plt.ylabel('score')
+    plt.show()
+
+
+# 实例7 skl验证曲线 补充 网格搜索，寻找最优参数
+def example_07():
+    from sklearn.preprocessing import PolynomialFeatures
+    from sklearn.linear_model import LinearRegression
+    from sklearn.pipeline import make_pipeline
+
+    def PolynomialRegression(degree=2, **kwargs):
+        return make_pipeline(PolynomialFeatures(degree), LinearRegression(**kwargs))
+
+    # 创造一些数据
+    def make_data(N, err=1.0, rseed=1):
+        # 随机抽样数据
+        rng = np.random.RandomState(rseed)
+        X = rng.rand(N, 1) ** 2
+        y = 10 - 1. / (X.ravel() + 0.1)
+        if err > 0:
+            y += err * rng.rand(N)
+        return X, y
+
+    X, y = make_data(40)
+    X_test = np.linspace(-0.1, 1.1, 500)[:, np.newaxis]
+
+    # 在实际工作中，模型有多个得分转折点(多个超参数),因此曲线会从2维变成N维
+    from sklearn.model_selection import GridSearchCV
+    param_grid = {'polynomialfeatures__degree': np.arange(21),
+                  'linearregression__fit_intercept': [True, False],
+                  'linearregression__normalize': [True, False]}
+    grid = GridSearchCV(PolynomialRegression(), param_grid, cv=7)
+    grid.fit(X,y)
+    print(grid.best_params_)
+    model = grid.best_estimator_
+
+    plt.scatter(X.ravel(), y)
+    lim = plt.axis()
+    y_test = model.fit(X,y).predict(X_test)
+    plt.plot(X_test.ravel(), y_test)
+    plt.axis(lim)
+
+    plt.show()
+
+
 if __name__ == '__main__':
-    example_04()
+    example_07()
