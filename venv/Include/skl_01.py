@@ -74,7 +74,6 @@ def example_03():
     Y = X_2D[:, 1]
     plt.scatter(X, Y)
     plt.show()
-    from sklearn.model_selection import cross_validate
 
 
 # 实例4 应用 手写数字探索
@@ -260,18 +259,128 @@ def example_07():
                   'linearregression__fit_intercept': [True, False],
                   'linearregression__normalize': [True, False]}
     grid = GridSearchCV(PolynomialRegression(), param_grid, cv=7)
-    grid.fit(X,y)
+    grid.fit(X, y)
     print(grid.best_params_)
     model = grid.best_estimator_
 
     plt.scatter(X.ravel(), y)
     lim = plt.axis()
-    y_test = model.fit(X,y).predict(X_test)
+    y_test = model.fit(X, y).predict(X_test)
     plt.plot(X_test.ravel(), y_test)
     plt.axis(lim)
 
     plt.show()
 
 
+# 专题 朴素贝叶斯分类
+# 实例8 高斯朴素贝叶斯
+def example_08():
+    from sklearn.datasets import make_blobs
+    X, y = make_blobs(100, 2, centers=2, random_state=2, cluster_std=1.5)
+    plt.scatter(X[:, 0], X[:, 1], c=y, s=50, cmap='RdBu')
+
+    # 计算模型边界
+    from sklearn.naive_bayes import GaussianNB
+    model = GaussianNB()
+    model.fit(X, y)
+
+    rng = np.random.RandomState(0)
+    Xnew = [-6, -14] + [14, 18] * rng.rand(2000, 2)
+    ynew = model.predict(Xnew)
+
+    lim = plt.axis()
+    plt.scatter(Xnew[:, 0], Xnew[:, 1], c=ynew, s=20, cmap='RdBu', alpha=0.5)
+    plt.axis(lim)
+
+    plt.show()
+
+    # 可以使用predict_proba方法计算样本标签概率 【round保留小数位】
+    yprob = model.predict_proba(Xnew)
+    print(yprob[-8:].round(2))
+
+
+# 多项式朴素贝叶斯：案例 文本分类
+def example_09():
+    from sklearn.datasets import fetch_20newsgroups
+
+    train = fetch_20newsgroups(subset='train')
+    test = fetch_20newsgroups(subset='test')
+    # print(train.data[5])
+
+    # 为了使文本数据可以用于机器学习，需要将字符串内容向量化
+    # 可以创建一个管道，将TF-IDF向量话方法 和 多项式朴素贝叶斯分类器组合在一起
+    from sklearn.feature_extraction.text import TfidfVectorizer
+    from sklearn.naive_bayes import MultinomialNB
+    from sklearn.pipeline import make_pipeline
+
+    model = make_pipeline(TfidfVectorizer(), MultinomialNB())
+    model.fit(train.data, train.target)
+    label = model.predict(test.data)
+
+    # 可以使用 accuracy_score 查看分数
+    from sklearn.metrics import accuracy_score
+    print(accuracy_score(label, test.target))
+
+    # 正确率为77% 我们可以使用混淆矩阵统计真实标签和预测标签的结果
+    from sklearn.metrics import confusion_matrix
+    mat = confusion_matrix(test.target, label)
+    plt.figure(figsize=(8, 8))
+    sns.heatmap(mat.T, square=True, annot=True, fmt='d', cbar=False, xticklabels=train.target_names,
+                yticklabels=train.target_names)
+    plt.xlabel('true label')
+    plt.ylabel('predicted label')
+
+    plt.show()
+
+
+# 专题 线性回归
+# 简单线性回归
+def example_10():
+    rng = np.random.RandomState(1)
+    x = 10 * rng.rand(50)
+    y = 2 * x - 5 + rng.randn(50)
+    plt.scatter(x, y)
+    # 使用linearRegression模型来拟合数据
+    from sklearn.linear_model import LinearRegression
+    # fit_intercept 是否计算截距 默认False 如果false 回归线过原点
+    model = LinearRegression(fit_intercept=True)
+    model.fit(x[:, np.newaxis], y)
+    xfit = np.linspace(0, 10, 1000)
+    yfit = model.predict(xfit[:, np.newaxis])
+    plt.plot(xfit, yfit)
+
+    plt.show()
+
+    # 数据的斜率和截距都在模型的拟合参数中， coef_取[0]因为这是一次函数 只有一个w
+    print('model slope:', model.coef_[0])
+    print('model intercept:', model.intercept_)
+
+
+# 多项式基函数
+def example_11():
+    from sklearn.linear_model import LinearRegression
+    from sklearn.preprocessing import PolynomialFeatures
+    # x = np.array([2, 3, 4])
+    # # include_bias 是否包含0次幂项
+    # poly = PolynomialFeatures(3, include_bias=False)
+    # a = poly.fit_transform(x[:,None])
+    from sklearn.pipeline import make_pipeline
+    poly_model = make_pipeline(PolynomialFeatures(7), LinearRegression())
+
+    rng = np.random.RandomState(1)
+    x = 10 * rng.rand(50)
+    y = np.sin(x) + 0.1 * rng.randn(50)
+    poly_model.fit(x[:, np.newaxis], y)
+    xfit = np.linspace(0, 10, 1000)
+    yfit = poly_model.predict(xfit[:,np.newaxis])
+
+    plt.scatter(x,y)
+    plt.plot(xfit,yfit)
+    plt.show()
+
+# 正则化 案例预测自行车流量
+
+
+
 if __name__ == '__main__':
-    example_07()
+    example_11()
