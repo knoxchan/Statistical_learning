@@ -372,15 +372,150 @@ def example_11():
     y = np.sin(x) + 0.1 * rng.randn(50)
     poly_model.fit(x[:, np.newaxis], y)
     xfit = np.linspace(0, 10, 1000)
-    yfit = poly_model.predict(xfit[:,np.newaxis])
+    yfit = poly_model.predict(xfit[:, np.newaxis])
 
-    plt.scatter(x,y)
-    plt.plot(xfit,yfit)
+    plt.scatter(x, y)
+    plt.plot(xfit, yfit)
     plt.show()
 
-# 正则化 案例预测自行车流量
 
+# 专题 支持向量机
+
+def plot_svc_decision_function(model, ax=None, plot_support=True):
+    ''' 画二维SVC的决策函数'''
+    if ax is None:
+        ax = plt.gca()
+    xlim = ax.get_xlim()
+    ylim = ax.get_ylim()
+
+    # 创建评估模型的网络
+    x = np.linspace(xlim[0], xlim[1], 30)
+    y = np.linspace(ylim[0], ylim[1], 30)
+    Y, X = np.meshgrid(y, x)
+    xy = np.vstack([X.ravel(), Y.ravel()]).T
+    p = model.decision_function(xy).reshape(X.shape)
+
+    # 画决策边界和边界
+    ax.contour(X, Y, p, colors='k', levels=[-1, 0, 1], alpha=0.5, linestyles=['--', '-', '--'])
+
+    # 画支持向量
+    if plot_support:
+        ax.scatter(model.support_vectors_[:, 0], model.support_vectors_[:, 1], s=300, linewidth=1, facecolors='none',
+                   edgecolor='g')
+    ax.set_xlim(xlim)
+    ax.set_ylim(ylim)
+
+
+# 拟合支持向量机
+def example_12():
+    from sklearn.datasets import make_blobs
+    X, y = make_blobs(n_samples=50, centers=2, random_state=0, cluster_std=0.6)
+    plt.scatter(X[:, 0], X[:, 1], c=y, s=50, cmap='autumn')
+
+    from sklearn.svm import SVC
+    model = SVC(kernel='linear', C=1E10)
+    model.fit(X, y)
+
+    plot_svc_decision_function(model)
+
+    plt.show()
+
+
+# 超越线性边界 核函数SVM模型
+def example_13():
+    from sklearn.datasets import make_circles
+    from sklearn.svm import SVC
+    X, y = make_circles(100, factor=.1, noise=.1)
+
+    r = np.exp(-(X ** 2)).sum(1)
+    plt.scatter(X[:, 0], X[:, 1], c=y, s=50, cmap='autumn')
+    # plot_svc_decision_function(clf,plot_support=False)
+    # ax = plt.axes(projection='3d')
+    # ax.scatter3D(X[:, 0], X[:, 1], r, c=y,s=50, cmap='autumn')
+
+    clf = SVC(kernel='rbf', C=1E6)
+    clf.fit(X, y)
+    plot_svc_decision_function(clf)
+
+    plt.show()
+
+
+# SVM优划 软化边界
+def example_14():
+    from sklearn.datasets import make_blobs
+    from sklearn.svm import SVC
+    X, y = make_blobs(n_samples=100, centers=2, random_state=0, cluster_std=1.2)
+    # plt.scatter(X[:,0],X[:,1],c=y,s=50,cmap='autumn')
+    fig, ax = plt.subplots(1, 2, figsize=(16, 6))
+    fig.subplots_adjust(left=0.0625, right=0.95, wspace=0.1)
+    for axi, C in zip(ax, [10, 0.1]):
+        model = SVC(kernel='linear', C=C).fit(X, y)
+        axi.scatter(X[:, 0], X[:, 1], c=y, s=50, cmap='autumn')
+        plot_svc_decision_function(model, axi)
+        axi.set_title('C = {0:.1f}'.format(C), size=14)
+    plt.show()
+
+
+# SVM案例 人脸识别
+def example_15():
+    from sklearn.datasets import fetch_lfw_people
+    from sklearn.svm import SVC
+    from sklearn.pipeline import make_pipeline
+    from sklearn.decomposition import PCA
+    faces = fetch_lfw_people(min_faces_per_person=60)
+
+    # print(faces.target_names)
+    # print(faces.images.shape)
+
+    # fig, ax = plt.subplots(3, 5)
+    # for i, axi in enumerate(ax.flat):
+    #     axi.imshow(faces.images[i],cmap='bone')
+    #     axi.set(xticks=[],yticks=[],xlabel=faces.target_names[faces.target[i]])
+
+    # 通过PCA 选取150个基本元素然后将其交给支持向量机分类器
+    pca = PCA(n_components=150, whiten=True, random_state=42)
+    svc = SVC(kernel='rbf', class_weight='balanced')
+    model = make_pipeline(pca, svc)
+
+    # 数据读取 与 数据分割
+    from sklearn.model_selection import train_test_split
+    Xtrain, Xtest, ytrain, ytest = train_test_split(faces.data, faces.target, random_state=42)
+
+    # 通过网格搜索交叉检验 来寻找最优参数组合，通过不断调整C(svm 惩罚参数)，gamma(控制径向基函数核大小)
+    from sklearn.model_selection import GridSearchCV
+    param_grid = {'svc__C': [1, 5, 10, 50],
+                  'svc__gamma': [0.0001, 0.0005, 0.001, 0.005]}
+    grid = GridSearchCV(model, param_grid)
+    grid.fit(Xtrain, ytrain)
+    print(grid.best_params_)
+    # 使用最优参数模型进行数据预测
+    model = grid.best_estimator_
+    yfit = model.predict(Xtest)
+    fig, ax = plt.subplots(4, 6)
+    for i, axi in enumerate(ax.flat):
+        axi.imshow(faces.images[i], cmap='bone')
+        axi.set(xticks=[], yticks=[])
+        axi.set_ylabel(faces.target_names[yfit[i]].split()[-1],
+                       color='black' if yfit[i] == ytest[i] else 'red')
+    fig.suptitle('predicted names; Incorrect Labels in Red', size=14)
+
+
+    # 打印分类效果报告
+    from sklearn.metrics import classification_report
+    print(classification_report(ytest, yfit, target_names=faces.target_names))
+
+    # 画出这个标签的混淆矩阵
+    plt.figure(figsize=(10,10))
+    from sklearn.metrics import confusion_matrix
+    mat = confusion_matrix(ytest, yfit)
+    sns.heatmap(mat.T, square=True, annot=True,fmt='d',cbar=False,
+                xticklabels=faces.target_names,
+                yticklabels=faces.target_names)
+    plt.xlabel('ture label')
+    plt.ylabel('predict label')
+
+    plt.show()
 
 
 if __name__ == '__main__':
-    example_11()
+    example_15()
