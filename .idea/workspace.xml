@@ -21,7 +21,7 @@
     <SUITE FILE_PATH="coverage/Statistical_learning$chapter_7_2.coverage" NAME="chapter_7_2 Coverage Results" MODIFIED="1586320489985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
     <SUITE FILE_PATH="coverage/Statistical_learning$smtp_test.coverage" NAME="smtp_test Coverage Results" MODIFIED="1586331760044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
     <SUITE FILE_PATH="coverage/Statistical_learning$chapter_6_1.coverage" NAME="chapter_6_1 Coverage Results" MODIFIED="1584947424403" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
-    <SUITE FILE_PATH="coverage/Statistical_learning$skl_01.coverage" NAME="skl_01 Coverage Results" MODIFIED="1588669435168" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
+    <SUITE FILE_PATH="coverage/Statistical_learning$skl_01.coverage" NAME="skl_01 Coverage Results" MODIFIED="1588747041180" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
     <SUITE FILE_PATH="coverage/Statistical_learning$chapter_2.coverage" NAME="chapter_2 Coverage Results" MODIFIED="1584005462123" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
     <SUITE FILE_PATH="coverage/Statistical_learning$chapter_5_3.coverage" NAME="chapter_5_3 Coverage Results" MODIFIED="1584527340451" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
     <SUITE FILE_PATH="coverage/Statistical_learning$matplotlib_learn.coverage" NAME="matplotlib_learn Coverage Results" MODIFIED="1588058840110" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
@@ -35,8 +35,26 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/venv/Include/skl_01.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="512" column="14" selection-start-line="512" selection-start-column="14" selection-end-line="512" selection-end-column="14" />
+            <state relative-caret-position="478">
+              <caret line="666" column="14" selection-start-line="657" selection-start-column="13" selection-end-line="658" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/figure.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="141">
+              <caret line="183" lean-forward="true" selection-start-line="183" selection-end-line="183" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/sklearn/ensemble/_forest.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="226">
+              <caret line="1387" column="22" lean-forward="true" selection-start-line="1387" selection-start-column="22" selection-end-line="1387" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -62,8 +80,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/pyplot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="3068" column="20" selection-start-line="3068" selection-start-column="14" selection-end-line="3068" selection-end-column="20" />
+            <state relative-caret-position="357">
+              <caret line="2758" column="23" selection-start-line="2758" selection-start-column="22" selection-end-line="2758" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/axes/_axes.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-567">
+              <caret line="1635" column="30" lean-forward="true" selection-start-line="1635" selection-start-column="30" selection-end-line="1635" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/pandas/util/_doctools.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="82" column="12" lean-forward="true" selection-start-line="82" selection-start-column="12" selection-end-line="82" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -82,42 +118,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
               <caret line="399" selection-start-line="399" selection-end-line="399" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.PyCharm2018.3/system/python_stubs/-982734665/numpy/core/_multiarray_umath.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="10830" column="45" selection-start-line="10830" selection-start-column="41" selection-end-line="10830" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/sklearn/datasets/_twenty_newsgroups.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="174" column="51" selection-start-line="174" selection-start-column="51" selection-end-line="174" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/sklearn/preprocessing/_data.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="1387" column="8" selection-start-line="1387" selection-start-column="8" selection-end-line="1389" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/sklearn/model_selection/_validation.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44352">
-              <caret line="1364" column="20" selection-start-line="1364" selection-start-column="4" selection-end-line="1364" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -153,9 +153,11 @@
       <find>include_bias</find>
       <find>make_blobs</find>
       <find>plot_support</find>
-      <find>cmap</find>
       <find>grid</find>
+      <find>cmap</find>
+      <find>k</find>
       <find>heatmap</find>
+      <find>wspace</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -191,10 +193,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="563" />
-    <option name="y" value="59" />
+    <option name="x" value="623" />
+    <option name="y" value="15" />
     <option name="width" value="1136" />
-    <option name="height" value="1004" />
+    <option name="height" value="1002" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -453,7 +455,7 @@
       <workItem from="1587623369539" duration="10564000" />
       <workItem from="1587955513033" duration="7869000" />
       <workItem from="1588039378363" duration="28167000" />
-      <workItem from="1588561007949" duration="34150000" />
+      <workItem from="1588561007949" duration="45781000" />
     </task>
     <task id="LOCAL-00001" summary="贝叶斯">
       <created>1584436593501</created>
@@ -588,11 +590,18 @@
       <option name="project" value="LOCAL" />
       <updated>1588587205245</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="sklearn test">
+      <created>1588674029816</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1588674029816</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="218888000" />
+    <option name="totallyTimeSpent" value="230519000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -604,14 +613,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="623" y="15" width="1136" height="1002" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49920255" weight="0.18215613" />
       <window_info id="Structure" order="1" sideWeight="0.50079745" side_tool="true" weight="0.17857143" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4948025" visible="true" weight="0.21908894" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4948025" visible="true" weight="0.109447" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49840087" weight="0.5011494" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -625,7 +635,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="right" id="SciView" order="3" sideWeight="0.4960452" visible="true" weight="0.5250533" />
+      <window_info anchor="right" id="SciView" order="3" sideWeight="0.4960452" visible="true" weight="0.6570632" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" x="0" y="0" width="205" height="860" id="Documentation" order="5" sideWeight="0.5039548" side_tool="true" weight="0.4851301" />
     </layout>
@@ -815,43 +825,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/venv/Include/chapter_6_2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Include/chapter_3_1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1782">
-          <caret line="59" column="19" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
-          <folding>
-            <element signature="e#12#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Include/chapter_7_1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5709">
-          <caret line="177" selection-start-line="177" selection-end-line="177" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Include/chapter_7_2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="858">
-          <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
-          <folding>
-            <element signature="e#35#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/sklearn/svm/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
@@ -1095,13 +1068,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/axes/_axes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="4484" lean-forward="true" selection-start-line="4484" selection-end-line="4484" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/numpy/lib/function_base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
@@ -1158,13 +1124,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/pyplot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="3068" column="20" selection-start-line="3068" selection-start-column="14" selection-end-line="3068" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/sklearn/pipeline.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1179,10 +1138,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Include/helpers_05_08.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1272">
+          <caret line="33" column="23" lean-forward="true" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/sklearn/ensemble/_forest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="1387" column="22" lean-forward="true" selection-start-line="1387" selection-start-column="22" selection-end-line="1387" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/pandas/util/_doctools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="82" column="12" lean-forward="true" selection-start-line="82" selection-start-column="12" selection-end-line="82" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/pyplot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="2758" column="23" selection-start-line="2758" selection-start-column="22" selection-end-line="2758" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/axes/_axes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-567">
+          <caret line="1635" column="30" lean-forward="true" selection-start-line="1635" selection-start-column="30" selection-end-line="1635" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/figure.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="183" lean-forward="true" selection-start-line="183" selection-end-line="183" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/venv/Include/skl_01.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="512" column="14" selection-start-line="512" selection-start-column="14" selection-end-line="512" selection-end-column="14" />
+        <state relative-caret-position="478">
+          <caret line="666" column="14" selection-start-line="657" selection-start-column="13" selection-end-line="658" selection-end-column="13" />
         </state>
       </provider>
     </entry>

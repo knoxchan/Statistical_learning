@@ -499,16 +499,15 @@ def example_15():
                        color='black' if yfit[i] == ytest[i] else 'red')
     fig.suptitle('predicted names; Incorrect Labels in Red', size=14)
 
-
     # 打印分类效果报告
     from sklearn.metrics import classification_report
     print(classification_report(ytest, yfit, target_names=faces.target_names))
 
     # 画出这个标签的混淆矩阵
-    plt.figure(figsize=(10,10))
+    plt.figure(figsize=(10, 10))
     from sklearn.metrics import confusion_matrix
     mat = confusion_matrix(ytest, yfit)
-    sns.heatmap(mat.T, square=True, annot=True,fmt='d',cbar=False,
+    sns.heatmap(mat.T, square=True, annot=True, fmt='d', cbar=False,
                 xticklabels=faces.target_names,
                 yticklabels=faces.target_names)
     plt.xlabel('ture label')
@@ -517,5 +516,152 @@ def example_15():
     plt.show()
 
 
+# 决策树 和 随机森林
+# 随机森林是建立在决策树基础上的集成学习器
+
+# 辅助函数 对分类器的结果进行可视化
+def visualize_classifier(model, X, y, ax=None, cmap='rainbow'):
+    ax = ax or plt.gca()
+
+    # 画出训练数据
+    ax.scatter(X[:, 0], X[:, 1], c=y, s=30, cmap=cmap, clim=(y.min(), y.max()), zorder=3)
+    ax.axis('tight')
+    ax.axis('off')
+    xlim = ax.get_xlim()
+    ylim = ax.get_ylim()
+
+    # 用评估器拟合数据
+    model.fit(X, y)
+    xx, yy = np.meshgrid(np.linspace(*xlim, num=200),
+                         np.linspace(*ylim, num=200))
+    Z = model.predict(np.c_[xx.ravel(), yy.ravel()]).reshape(xx.shape)
+
+    # 为结果生成彩色图
+    n_classes = len(np.unique(y))
+    contours = ax.contourf(xx, yy, Z, alpha=0.3, levels=np.arange(n_classes + 1) - 0.5,
+                           cmap=cmap, clim=(y.min(), y.max()),
+                           zorder=1)
+    ax.set(xlim=xlim, ylim=ylim)
+
+
+# 创建一颗决策树
+def example_16():
+    from sklearn.datasets import make_blobs
+
+    X, y = make_blobs(n_samples=360, centers=4, random_state=0, cluster_std=1)
+    plt.scatter(X[:, 0], X[:, 1], c=y, s=50, cmap='rainbow')
+
+    # 导入决策树对数据进行拟合
+    from sklearn.tree import DecisionTreeClassifier
+    tree = DecisionTreeClassifier().fit(X, y)
+    visualize_classifier(tree, X, y)
+    plt.show()
+
+
+# 评估器集成算法 随机森林
+# 使用baggingclassifier元评估器实现装袋分类器
+def example_17():
+    from sklearn.tree import DecisionTreeClassifier
+    from sklearn.ensemble import BaggingClassifier
+
+    from sklearn.datasets import make_blobs
+
+    X, y = make_blobs(n_samples=360, centers=4, random_state=0, cluster_std=1)
+    plt.scatter(X[:, 0], X[:, 1], c=y, s=50, cmap='rainbow')
+
+    tree = DecisionTreeClassifier()
+    bag = BaggingClassifier(tree, n_estimators=500, max_samples=0.8, random_state=1)
+
+    visualize_classifier(bag, X, y)
+
+    plt.show()
+
+
+# 使用随机森林评估器
+def example_18():
+    from sklearn.ensemble import RandomForestClassifier
+    from sklearn.datasets import make_blobs
+
+    X, y = make_blobs(n_samples=360, centers=4, random_state=0, cluster_std=1)
+    plt.scatter(X[:, 0], X[:, 1], c=y, s=50, cmap='rainbow')
+
+    model = RandomForestClassifier(n_estimators=100, random_state=0)
+    visualize_classifier(model, X, y)
+    plt.show()
+
+
+# 随机森林回归
+def example_19():
+    rng = np.random.RandomState(42)
+    x = 10 * rng.rand(200)
+
+    def model(x, sigma=0.3):
+        fast_oscillation = np.sin(5 * x)
+        slow_oscillation = np.sin(0.5 * x)
+        noise = sigma * rng.randn(len(x))
+
+        return fast_oscillation + slow_oscillation
+
+    y = model(x)
+
+    # 误差棒图
+    # plt.errorbar(x,y,0.3,fmt='o')
+
+    from sklearn.ensemble import RandomForestRegressor
+    forest = RandomForestRegressor(200)
+    forest.fit(x[:, np.newaxis], y)
+
+    xfit = np.linspace(0, 10, 1000)
+    yfit = forest.predict(xfit[:, np.newaxis])
+    yture = model(xfit, sigma=0)
+
+    # 红色 预测曲线
+    plt.plot(xfit, yfit, '-r')
+
+    plt.plot(xfit, yture, '-k', alpha=0.5)
+
+    plt.show()
+
+
+# 案例 用随机森林识别手写数字
+def example_20():
+    from sklearn.datasets import load_digits
+    digits = load_digits()
+    # print(digits.keys())
+    fig = plt.figure(figsize=(6, 6))
+    fig.subplots_adjust(left=0,right=1,bottom=0,top=1,hspace=0.05,wspace=0.05)
+
+    # 打印数字图片 每个数字是8 * 8 像素
+    for i in range(64):
+        ax = fig.add_subplot(8,8,i+1,xticks=[],yticks=[])
+        ax.imshow(digits.images[i],cmap=plt.cm.binary,interpolation='nearest')
+
+        # 用target的值给图像作标注
+        ax.text(0,7,str(digits.target[i]))
+
+    # 用随机森林快读对数字进行分类
+    from sklearn.model_selection import train_test_split
+    from sklearn.ensemble import RandomForestClassifier
+    Xtrain,Xtest,ytrain,ytest = train_test_split(digits.data,digits.target,random_state=0)
+
+    model = RandomForestClassifier(n_estimators=1000)
+    model.fit(Xtrain,ytrain)
+    ypred = model.predict(Xtest)
+
+    # 查看分类结果报告
+    from sklearn.metrics import classification_report
+    print(classification_report(ytest,ypred))
+
+    # 查看混淆矩阵
+    from sklearn.metrics import confusion_matrix
+    mat = confusion_matrix(ytest,ypred)
+    plt.figure(figsize=(8,8))
+    sns.heatmap(mat.T,square=True,annot=True,fmt='d',cbar=False)
+    plt.xlabel('ture label')
+    plt.ylabel('predict label')
+
+    plt.show()
+
+
 if __name__ == '__main__':
-    example_15()
+    example_20()
