@@ -381,8 +381,8 @@ def example_11():
 
 # 专题 支持向量机
 
+# 画二维SVC的决策函数
 def plot_svc_decision_function(model, ax=None, plot_support=True):
-    ''' 画二维SVC的决策函数'''
     if ax is None:
         ax = plt.gca()
     xlim = ax.get_xlim()
@@ -629,39 +629,254 @@ def example_20():
     digits = load_digits()
     # print(digits.keys())
     fig = plt.figure(figsize=(6, 6))
-    fig.subplots_adjust(left=0,right=1,bottom=0,top=1,hspace=0.05,wspace=0.05)
+    fig.subplots_adjust(left=0, right=1, bottom=0, top=1, hspace=0.05, wspace=0.05)
 
     # 打印数字图片 每个数字是8 * 8 像素
     for i in range(64):
-        ax = fig.add_subplot(8,8,i+1,xticks=[],yticks=[])
-        ax.imshow(digits.images[i],cmap=plt.cm.binary,interpolation='nearest')
+        ax = fig.add_subplot(8, 8, i + 1, xticks=[], yticks=[])
+        ax.imshow(digits.images[i], cmap=plt.cm.binary, interpolation='nearest')
 
         # 用target的值给图像作标注
-        ax.text(0,7,str(digits.target[i]))
+        ax.text(0, 7, str(digits.target[i]))
 
     # 用随机森林快读对数字进行分类
     from sklearn.model_selection import train_test_split
     from sklearn.ensemble import RandomForestClassifier
-    Xtrain,Xtest,ytrain,ytest = train_test_split(digits.data,digits.target,random_state=0)
+    Xtrain, Xtest, ytrain, ytest = train_test_split(digits.data, digits.target, random_state=0)
 
     model = RandomForestClassifier(n_estimators=1000)
-    model.fit(Xtrain,ytrain)
+    model.fit(Xtrain, ytrain)
     ypred = model.predict(Xtest)
 
     # 查看分类结果报告
     from sklearn.metrics import classification_report
-    print(classification_report(ytest,ypred))
+    print(classification_report(ytest, ypred))
 
     # 查看混淆矩阵
     from sklearn.metrics import confusion_matrix
-    mat = confusion_matrix(ytest,ypred)
-    plt.figure(figsize=(8,8))
-    sns.heatmap(mat.T,square=True,annot=True,fmt='d',cbar=False)
+    mat = confusion_matrix(ytest, ypred)
+    plt.figure(figsize=(8, 8))
+    sns.heatmap(mat.T, square=True, annot=True, fmt='d', cbar=False)
     plt.xlabel('ture label')
     plt.ylabel('predict label')
 
     plt.show()
 
 
+# 专题 主成分分析
+
+def draw_vector(v0, v1, ax=None):
+    # plt.gca Get Current Axes
+    ax = ax or plt.gca()
+    # arrowprops 箭杆
+    arrowprops = dict(arrowstyle='->',
+                      linewidth=2,
+                      shrinkA=0, shrinkB=0)
+    ax.annotate('', v1, v0, arrowprops=arrowprops)
+
+
+# 基础pca降维实例 画出降维后的主成分
+def example_21():
+    rng = np.random.RandomState(1)
+    X = np.dot(rng.rand(2, 2), rng.randn(2, 200)).T
+    print(X.shape)
+
+    from sklearn.decomposition import PCA
+    pca = PCA(n_components=2)
+    pca.fit(X)
+
+    # pca.components_   # 成分
+    # pca.explained_variance_   # 可解释性
+    print(pca.components_)
+    print(pca.explained_variance_)
+
+    # 画出数据
+    plt.scatter(X[:, 0], X[:, 1], alpha=0.2)
+    for length, vector in zip(pca.explained_variance_, pca.components_):
+        v = vector * 3 * np.sqrt(length)
+        draw_vector(pca.mean_, pca.mean_ + v)
+    plt.axis('equal')
+    plt.show()
+
+
+# 手写数字pca降维
+def example_22():
+    from sklearn.datasets import load_digits
+    digits = load_digits()
+    print(digits.data.shape)
+
+    from sklearn.decomposition import PCA
+    pca = PCA(2)  # 降至2维
+    projected = pca.fit_transform(digits.data)
+    print(projected.shape)
+
+    # 画出降维之后两个主成分，
+    plt.scatter(projected[:, 0], projected[:, 1], c=digits.target, edgecolors='none', alpha=0.5,
+                cmap=plt.cm.get_cmap('Spectral', 10))
+    plt.xlabel('component 1')
+    plt.ylabel('component 2')
+    plt.colorbar()
+
+    plt.show()
+
+
+# 成分数量与累计方差贡献率的关系图
+def example_23():
+    from sklearn.datasets import load_digits
+    from sklearn.decomposition import PCA
+    digits = load_digits()
+    pca = PCA().fit(digits.data)
+    plt.plot(np.cumsum(pca.explained_variance_ratio_))
+
+    plt.ylabel('cumulative')
+    plt.xlabel('number of components')
+    plt.show()
+
+
+# 使用pca作噪声过滤
+# pca也可以作为噪声数据的过滤方法 任何成分的方差都会大于噪音的方差
+
+def plot_digits(data):
+    fig, axes = plt.subplots(10, 10, figsize=(8, 8), subplot_kw={'xticks': [], 'yticks': []},
+                             gridspec_kw=dict(hspace=0.1, wspace=0.1))
+    for i, ax in enumerate(axes.flat):
+        ax.imshow(data[i].reshape((8, 8)), cmap='binary', interpolation='nearest', clim=(0, 16))
+
+
+# 手写数字添加随机噪声 再使用PCA进行降噪
+def example_24():
+    from sklearn.datasets import load_digits
+    from sklearn.decomposition import PCA
+
+    digits = load_digits()
+    # 原始图
+    plot_digits(digits.data)
+
+    # 加上高斯随机噪声
+    np.random.seed(42)
+    noisy = np.random.normal(digits.data, 4)
+    plot_digits(noisy)
+
+    # 通过PCA保存50% 的方差
+    pca = PCA(0.5).fit(noisy)
+    print(pca.n_components_)
+
+    # 输出结果为 50% 的方差对应12个主成分
+    components = pca.transform(noisy)
+    filtered = pca.inverse_transform(components)
+    plot_digits(filtered)
+    plt.show()
+
+
+# 案例 特征脸
+def example_25():
+    from sklearn.datasets import fetch_lfw_people
+    faces = fetch_lfw_people(min_faces_per_person=60)
+    print(faces.target_names)
+    print(faces.images.shape)
+
+    from sklearn.decomposition import PCA
+    pca = PCA(150)
+    pca.fit(faces.data)
+
+    fig, axes = plt.subplots(3, 8, figsize=(9, 4), subplot_kw={'xticks': [], 'yticks': []},
+                             gridspec_kw=dict(hspace=0.1, wspace=0.1))
+    # 输出保存到150特征的面孔图像
+    for i, ax in enumerate(axes.flat):
+        ax.imshow(pca.components_[i].reshape(62, 47), cmap='bone')
+
+    # 输出LFW数据的累计解释方差
+    fig = plt.figure()
+    plt.plot(np.cumsum(pca.explained_variance_ratio_))
+    plt.xlim(-5, 165)
+    plt.xlabel('number of components')
+    plt.ylabel('cumulative explained variance')
+
+    plt.show()
+
+
+# 对比使用PCA降维前后的人脸图像
+def example_26():
+    from sklearn.decomposition import PCA
+    from sklearn.datasets import fetch_lfw_people
+    faces = fetch_lfw_people(min_faces_per_person=60)
+
+    # 计算成分和投影的人脸
+    pca = PCA(150).fit(faces.data)
+    components = pca.transform(faces.data)
+    # 将降维的数据转换成原始数据
+    projected = pca.inverse_transform(components)
+    fig, ax = plt.subplots(2, 10, figsize=(10, 2.5), subplot_kw={'xticks': [], 'yticks': []},
+                           gridspec_kw=dict(hspace=0.1, wspace=0.1))
+
+    for i in range(10):
+        ax[0, i].imshow(faces.data[i].reshape(62, 47), cmap='binary_r')
+        ax[1, i].imshow(projected[i].reshape(62, 47), cmap='binary_r')
+
+    ax[0, 0].set_ylabel('full-dim\ninput')
+    ax[1, 0].set_ylabel('150-dim\n reconstruction')
+
+    plt.show()
+
+
+# 专题 k-mean 数据聚类
+
+# 通过kmean 计算数据簇中心点以及通过颜色区分不同颜色的簇
+def example_27():
+    from sklearn.datasets import make_blobs
+    X, y_true = make_blobs(n_samples=300, centers=4, cluster_std=0.6, random_state=0)
+
+    from sklearn.cluster import KMeans
+    keans = KMeans(n_clusters=4)
+    keans.fit(X)
+    y_means = keans.predict(X)
+
+    plt.scatter(X[:, 0], X[:, 1], s=50, c=y_means)
+    centers = keans.cluster_centers_
+    plt.scatter(centers[:, 0], centers[:, 1], c='black', s=200, alpha=0.3)
+
+    plt.show()
+
+
+# k-means算法 期望最大化(EM算法)
+def example_28():
+    from sklearn.datasets import make_blobs
+    X, y_true = make_blobs(n_samples=300, centers=4, cluster_std=0.6, random_state=0)
+
+    from sklearn.metrics import pairwise_distances_argmin
+    def find_clusters(X, n_clusters, rseed=2):
+        # 1.随机选择簇中心点
+        rng = np.random.RandomState(rseed)
+        i = rng.permutation(X.shape[0])[:n_clusters]
+        centers = X[i]
+
+        while True:
+            # 2a基于最经的中心指定标签
+            labels = pairwise_distances_argmin(X, centers)
+
+            # 2b.根据点的平困值找到新的中心
+            new_centers = np.array([X[labels == i].mean(0)
+                                    for i in range(n_clusters)])
+
+            # 2c.确认收敛
+            if np.all(centers == new_centers):
+                break
+            centers = new_centers
+        return centers, labels
+
+    #  原图
+    plt.scatter(X[:, 0], X[:, 1], s=50, c=y_true, cmap='viridis')
+
+    # 通过k-means计算得到的图
+    plt.figure()
+    centers, labels = find_clusters(X, 4)
+    plt.scatter(X[:, 0], X[:, 1], c=labels, s=50, cmap='viridis')
+
+    plt.show()
+
+
+# 专题 流形学习
+
+
 if __name__ == '__main__':
-    example_20()
+    example_28()
