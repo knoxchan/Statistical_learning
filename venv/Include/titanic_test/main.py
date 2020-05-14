@@ -150,13 +150,96 @@ def plotFrequency(variables):
     return plt.show()
 
 '''plot absolute and realtive frequebcy'''
-plotFrequency(merged.Survived)
-plotFrequency(merged.Sex)
-plotFrequency(merged.Pclass)
-plotFrequency(merged.Embarked)
+# plotFrequency(merged.Survived)
+# plotFrequency(merged.Sex)
+# plotFrequency(merged.Pclass)
+# plotFrequency(merged.Embarked)
 
 ''' Cabin '''
 absFreqCabin = merged.Cabin.value_counts(dropna=False)
 print(absFreqCabin.head())
 print(absFreqCabin.count())
 
+''' Name '''
+print('Total categories in Name')
+print(merged.Name.value_counts().count())
+print(merged.Name.head(7))
+
+# 有1307个名字在数据表里面，我们需要对名字进行预处理 才可以知道名字和存货情况有没有关系
+
+''' Ticket '''
+print('Total group in ticket')
+print(merged.Ticket.value_counts().count())
+print(merged.Ticket.head())
+
+# 得知船票也有许多独特的类型，我们也需要对其进行数据预处理
+
+''' SibSp 船上兄弟姐妹/配偶人数'''
+# plotFrequency(merged.SibSp)
+
+''' Parch 船上兄弟父母/孩子人数'''
+# plotFrequency(merged.Parch)
+
+def plotHistogram(variables):
+    '''plot histogram and density plot of a variable'''
+
+    # 图片初始化 添加大标题
+    fig = plt.figure(figsize=(10,8))
+    fig.suptitle(variables.name,y=0.02)
+
+    # 创建子图
+    ax1 = fig.add_subplot(211)
+    ax2 = fig.add_subplot(212)
+
+    # bin = variables.max() - variables.min()
+
+    (count1,bin1,patch1) = ax1.hist(variables,bins=12)
+    (count2,bin2,patch2) = ax2.hist(variables,density=True,bins=12)
+
+    # X轴标签设置
+    ax1.set_xticks(bin1)
+    ax2.set_xticks(bin2)
+
+    x_coordinate = [(bin1[1] / 2) + (bin1[1] * i) for i in range(len(bin1))]
+    # 数字显示
+    for a,b in zip(x_coordinate,count1):
+        ax1.text(a,b,'%.2f'%b,ha='center',va='bottom')
+
+    # 标题设置
+    ax1.set_title('Abs Freq')
+    ax2.set_title('Rel Freq(%)')
+
+    return plt.show()
+
+def calculateSummaryStats(variable):
+    # skewness 偏度  x > 1 or x < -1 高度偏斜 x > 0.5 or x < -0.5 中度偏斜 -0.5 < x < 0.5 基本对称 无偏斜
+    stats = variable.describe()
+    skewness = pd.Series(variable.skew(), index = ["skewness"])
+    statsDf = pd.DataFrame(pd.concat([skewness, stats], sort = False), columns = [variable.name])
+    statsDf = statsDf.reset_index().rename(columns={"index":"summaryStats"})
+    return print(statsDf.round(2))
+
+''' Fare 票价'''
+# plotHistogram(merged.Fare)
+# calculateSummaryStats(merged.Fare)
+
+''' Age '''
+# plotHistogram(merged.Age)
+calculateSummaryStats(merged.Age)
+
+## Feature Engineering
+
+''' process Cabin '''
+# 使用仓位前面的代号替代仓位 并用X表示缺失值
+merged["cabinProcessed"] = merged.Cabin.str.get(0)
+merged["cabinProcessed"].fillna('X',inplace=True)
+print("Cabin Categories after Processing:")
+print(merged.cabinProcessed.value_counts())
+# plotFrequency(merged.cabinProcessed)
+
+''' process Name '''
+print(merged.Name.head(10))
+firstName = merged.Name.str.split(".").str.get(0).str.split(",").str.get(-1)
+print(firstName.value_counts())
+firstName.replace(to_replace = ['Dr','Rev','Col','Major','Capt'],value='officer',inplace=True,regex=True)
+pass

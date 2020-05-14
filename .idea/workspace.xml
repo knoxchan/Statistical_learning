@@ -15,7 +15,7 @@
     <SUITE FILE_PATH="coverage/Statistical_learning$chapter_5_1.coverage" NAME="chapter_5_1 Coverage Results" MODIFIED="1584526041134" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
     <SUITE FILE_PATH="coverage/Statistical_learning$chapter_3.coverage" NAME="chapter_3 Coverage Results" MODIFIED="1584352301047" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
     <SUITE FILE_PATH="coverage/Statistical_learning$chapter_7_1.coverage" NAME="chapter_7_1 Coverage Results" MODIFIED="1586320253112" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
-    <SUITE FILE_PATH="coverage/Statistical_learning$main.coverage" NAME="main Coverage Results" MODIFIED="1589365021386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include/titanic_test" />
+    <SUITE FILE_PATH="coverage/Statistical_learning$main.coverage" NAME="main Coverage Results" MODIFIED="1589450516634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include/titanic_test" />
     <SUITE FILE_PATH="coverage/Statistical_learning$chapter_4.coverage" NAME="chapter_4 Coverage Results" MODIFIED="1584434946021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
     <SUITE FILE_PATH="coverage/Statistical_learning$chapter_4_1.coverage" NAME="chapter_4_1 Coverage Results" MODIFIED="1584438361225" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
     <SUITE FILE_PATH="coverage/Statistical_learning$numpy_learn.coverage" NAME="numpy_learn Coverage Results" MODIFIED="1587968330422" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
@@ -36,7 +36,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/Include/matplotlib_learn.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
+            <state relative-caret-position="307">
               <caret line="17" column="14" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="14" />
             </state>
           </provider>
@@ -45,8 +45,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/venv/Include/titanic_test/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="155" column="30" lean-forward="true" selection-start-line="155" selection-start-column="30" selection-end-line="155" selection-end-column="30" />
+            <state relative-caret-position="218">
+              <caret line="243" column="104" selection-start-line="243" selection-start-column="104" selection-end-line="243" selection-end-column="104" />
               <folding>
                 <element signature="e#29#69#0" expanded="true" />
               </folding>
@@ -55,10 +55,46 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/figure.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="696" column="27" selection-start-line="696" selection-start-column="8" selection-end-line="696" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/legend.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-14">
+              <caret line="1256" column="10" lean-forward="true" selection-start-line="1256" selection-start-column="10" selection-end-line="1256" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/pandas/core/generic.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="128">
+              <caret line="5273" selection-start-line="5273" selection-end-line="5273" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/axes/_axes.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4">
+              <caret line="6353" column="10" lean-forward="true" selection-start-line="6353" selection-start-column="10" selection-end-line="6353" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/pandas/plotting/_core.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1405">
-              <caret line="1004" column="8" selection-start-line="1004" selection-start-column="8" selection-end-line="1004" selection-end-column="8" />
+            <state relative-caret-position="330">
+              <caret line="1134" column="8" selection-start-line="1134" selection-start-column="8" selection-end-line="1134" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -74,15 +110,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Counter</find>
-      <find>weights</find>
-      <find>data_matrix</find>
-      <find>message</find>
-      <find>precision</find>
-      <find>plt</find>
-      <find>(cm)</find>
-      <find>gridspec_kw</find>
-      <find>spectral</find>
       <find>c</find>
       <find>param_name</find>
       <find>example</find>
@@ -104,6 +131,15 @@
       <find>iplot</find>
       <find>subplot_kw</find>
       <find>make_subplots</find>
+      <find>SibSp</find>
+      <find>Fare</find>
+      <find>suptitle</find>
+      <find>plot</find>
+      <find>plotF</find>
+      <find>return</find>
+      <find>?</find>
+      <find>plotFrequency</find>
+      <find>plotHistogram</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -140,8 +176,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="745" />
-    <option name="y" value="29" />
+    <option name="x" value="694" />
+    <option name="y" value="57" />
     <option name="width" value="1136" />
     <option name="height" value="1003" />
   </component>
@@ -263,6 +299,9 @@
       <module name="Statistical_learning" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv/Include/titanic_test" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -395,7 +434,8 @@
       <workItem from="1588561007949" duration="50575000" />
       <workItem from="1588847092909" duration="15772000" />
       <workItem from="1589160948595" duration="13493000" />
-      <workItem from="1589277387852" duration="24194000" />
+      <workItem from="1589277387852" duration="25833000" />
+      <workItem from="1589438998090" duration="10748000" />
     </task>
     <task id="LOCAL-00001" summary="贝叶斯">
       <created>1584436593501</created>
@@ -565,11 +605,18 @@
       <option name="project" value="LOCAL" />
       <updated>1589280629772</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="titanic_test">
+      <created>1589365362544</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1589365362544</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="288772000" />
+    <option name="totallyTimeSpent" value="301159000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -581,7 +628,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="745" y="29" width="1136" height="1003" extended-state="0" />
+    <frame x="853" y="24" width="1136" height="1003" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49920255" weight="0.30576208" />
@@ -589,8 +636,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4948025" visible="true" weight="0.5132336" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49840087" weight="0.4989154" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4948025" visible="true" weight="0.41196778" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49840087" weight="0.46963122" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49946696" weight="0.329718" />
@@ -603,9 +650,9 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" sideWeight="0.49423963" visible="true" weight="0.091078065" />
+      <window_info anchor="right" id="SciView" order="3" sideWeight="0.49172577" weight="0.67843866" />
       <window_info anchor="right" id="Database" order="4" />
-      <window_info anchor="right" x="0" y="0" width="205" height="860" id="Documentation" order="5" sideWeight="0.5051784" side_tool="true" weight="0.12546468" />
+      <window_info anchor="right" x="0" y="0" width="205" height="860" id="Documentation" order="5" sideWeight="0.50827426" side_tool="true" weight="0.091078065" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49920255" visible="true" weight="0.16635688" />
@@ -802,20 +849,23 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/venv/Include/titanic_test/main.py</url>
-          <line>116</line>
-          <option name="timeStamp" value="40" />
+          <line>223</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/venv/Include/titanic_test/main.py</url>
+          <line>211</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/venv/Include/titanic_test/main.py</url>
+          <line>244</line>
+          <option name="timeStamp" value="47" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/fromnumeric.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68574">
-          <caret line="2092" column="14" selection-start-line="2092" selection-start-column="14" selection-end-line="2092" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_bundle/pydev_import_hook.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1058,13 +1108,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/pandas/core/generic.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="5273" selection-start-line="5273" selection-end-line="5273" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="316">
@@ -1076,13 +1119,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="70">
           <caret line="279" lean-forward="true" selection-start-line="279" selection-end-line="279" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/figure.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="1418" selection-start-line="1418" selection-end-line="1418" />
         </state>
       </provider>
     </entry>
@@ -1104,13 +1140,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
           <caret line="2924" selection-start-line="2924" selection-end-line="2924" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/axes/_axes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="2165" column="27" selection-start-line="2165" selection-start-column="21" selection-end-line="2165" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -1139,24 +1168,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/pandas/core/generic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="5273" selection-start-line="5273" selection-end-line="5273" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/venv/Include/matplotlib_learn.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
+        <state relative-caret-position="307">
           <caret line="17" column="14" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/pandas/plotting/_core.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1405">
-          <caret line="1004" column="8" selection-start-line="1004" selection-start-column="8" selection-end-line="1004" selection-end-column="8" />
+        <state relative-caret-position="330">
+          <caret line="1134" column="8" selection-start-line="1134" selection-start-column="8" selection-end-line="1134" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/axes/_axes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4">
+          <caret line="6353" column="10" lean-forward="true" selection-start-line="6353" selection-start-column="10" selection-end-line="6353" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/legend.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-14">
+          <caret line="1256" column="10" lean-forward="true" selection-start-line="1256" selection-start-column="10" selection-end-line="1256" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/figure.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="696" column="27" selection-start-line="696" selection-start-column="8" selection-end-line="696" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/Include/titanic_test/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="155" column="30" lean-forward="true" selection-start-line="155" selection-start-column="30" selection-end-line="155" selection-end-column="30" />
+        <state relative-caret-position="218">
+          <caret line="243" column="104" selection-start-line="243" selection-start-column="104" selection-end-line="243" selection-end-column="104" />
           <folding>
             <element signature="e#29#69#0" expanded="true" />
           </folding>
